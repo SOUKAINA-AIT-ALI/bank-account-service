@@ -15,9 +15,10 @@ import java.util.Date;
 public class BankAccount {
     @Id
     private String id ;
-    private Date date;
+    private Date createdAt;
     private double balance;
     private String  currency;
+
     private AccountType  type;
 
 
