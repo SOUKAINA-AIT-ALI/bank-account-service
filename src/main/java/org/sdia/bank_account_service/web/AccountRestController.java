@@ -4,6 +4,7 @@ package org.sdia.bank_account_service.web;
 import org.sdia.bank_account_service.dto.BankAccountRequestDTO;
 import org.sdia.bank_account_service.dto.BankAccountResponseDTO;
 import org.sdia.bank_account_service.entities.BankAccount;
+import org.sdia.bank_account_service.mappers.AccountMapper;
 import org.sdia.bank_account_service.repositories.BankAccountRepository;
 import org.sdia.bank_account_service.service.AccountService;
 import org.springframework.web.bind.annotation.*;
@@ -19,9 +20,10 @@ public class AccountRestController {
 
     private BankAccountRepository bankAccountRepository;
     private AccountService accountService;
-
-    public AccountRestController(BankAccountRepository bankAccountRepository) {
+    private AccountMapper accountMapper;
+    public AccountRestController(BankAccountRepository bankAccountRepository, AccountService accountService) {
         this.bankAccountRepository = bankAccountRepository;
+        this.accountService = accountService;
     }
 
     // CORRECTION 1 : Enlever l'espace et ajouter le 'k'
